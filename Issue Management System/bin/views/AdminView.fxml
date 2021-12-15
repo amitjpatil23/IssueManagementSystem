@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1d3557 #1d3557;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminController">
+   <children>
+      <Button fx:id="btnViewAccounts" layoutX="16.0" layoutY="35.0" mnemonicParsing="false" onAction="#OnBtnViewAccountsClicked" prefHeight="26.0" prefWidth="107.0" style="-fx-background-color: #00A8A8;" text="View Accounts" />
+      <Button fx:id="btnUpdateAccount" layoutX="145.0" layoutY="35.0" mnemonicParsing="false" onAction="#OnBtnUpdateAccountClicked" style="-fx-background-color: #00A8A8;" text="Manage Account" />
+      <Button fx:id="btnViewProblems" layoutX="275.0" layoutY="35.0" mnemonicParsing="false" onAction="#OnBtnViewProblemsClicked" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #00A8A8;" text="View Issues" />
+      <Button fx:id="btnUpdateProblem" layoutX="385.0" layoutY="35.0" mnemonicParsing="false" onAction="#OnBtnUpdateProblemClicked" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: #00A8A8;" text="Manage Issues" />
+      <Button fx:id="btnLogout" layoutX="508.0" layoutY="35.0" mnemonicParsing="false" onAction="#OnBtnLogoutClicked" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: #00A8A8;" text="Logout" />
+      <Text fx:id="txtScreenType" fill="WHITE" layoutX="250.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Group fx:id="groupViewAccounts" layoutX="12.0" layoutY="127.0">
+         <children>
+            <TableView fx:id="tableViewAccount" editable="true" prefHeight="238.0" prefWidth="575.0">
+              <columns>
+                <TableColumn fx:id="colAccountID" prefWidth="147.0" text="ID" />
+                  <TableColumn fx:id="colAccountUserName" minWidth="0.0" prefWidth="130.0" text="Username" />
+                <TableColumn fx:id="colAccountPassword" minWidth="0.0" prefWidth="163.0" text="Password" />
+                  <TableColumn fx:id="colAccountIsAdmin" minWidth="0.0" prefWidth="134.0" text="Admin" />
+              </columns>
+            </TableView>
+         </children>
+      </Group>
+      <Text fx:id="txtErrorMsg" fill="WHITE" layoutX="187.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Group fx:id="groupUpdateAccounts" layoutX="171.0" layoutY="135.0">
+         <children>
+            <!-- <TextField fx:id="txtAccountID" disable="true" layoutX="67.0" layoutY="-20.0" />
+            <Text disable="true" fill="WHITE" layoutX="28.0" layoutY="-3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID:" /> -->
+            <TextField fx:id="txtAccountUserName" layoutX="67.0" layoutY="10.0" />
+            <Text fill="WHITE" layoutX="-8.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" textAlignment="RIGHT" />
+            <TextField fx:id="txtAccountPassword" layoutX="67.0" layoutY="44.0" />
+            <Text fill="WHITE" layoutX="-5.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" textAlignment="RIGHT" />
+            <CheckBox fx:id="checkAccountIsAdmin" layoutX="69.0" layoutY="76.0" mnemonicParsing="false" text="Admin Account" textFill="WHITE" />
+            <CheckBox fx:id="checkAccountIsAdd" layoutX="69.0" layoutY="99.0" mnemonicParsing="false" text="Add New Account" textFill="WHITE" />
+            <CheckBox fx:id="checkAccountIsDelete" layoutX="70.0" layoutY="122.0" mnemonicParsing="false" text="Delete Account" textFill="WHITE" />
+            <Button fx:id="btnAccountUpdate" layoutX="69.0" layoutY="147.0" mnemonicParsing="false" onAction="#OnBtnAccountUpdateClicked" prefHeight="26.0" prefWidth="153.0" text="Update" />
+         </children>
+      </Group>
+      <Group fx:id="groupViewProblems" layoutX="12.0" layoutY="128.0">
+         <children>
+            <TableView fx:id="tableViewProblem" editable="true" prefHeight="238.0" prefWidth="575.0">
+               <columns>
+                  <TableColumn fx:id="colProblemID" prefWidth="92.0" text="Issue ID" />
+                  <TableColumn fx:id="colProblemUserID" prefWidth="75.0" text="User ID" />
+                  <TableColumn fx:id="colProblemDesc" minWidth="0.0" prefWidth="186.0" text="Description" />
+                  <TableColumn fx:id="colProblemDate" minWidth="0.0" prefWidth="103.0" text="Submitted on" />
+                  <TableColumn fx:id="colStatus" prefWidth="110.0" text="Status" />
+               </columns>
+            </TableView>
+         </children>
+      </Group>
+      <Group fx:id="groupUpdateProblem" layoutX="171.0" layoutY="136.0">
+         <children>
+            <TextField fx:id="txtProblemID" layoutX="67.0" layoutY="6.0" />
+            <Text fill="WHITE" layoutX="-9.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Issue ID" textAlignment="RIGHT" />
+            <TextField fx:id="txtProblemDesc" layoutX="67.0" layoutY="42.0" prefHeight="41.0" prefWidth="159.0" />
+            <Text fill="WHITE" layoutX="-9.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Issue Description" wrappingWidth="70.40576171875" />
+            <Text fill="WHITE" layoutX="-4.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" />
+            <TextField fx:id="txtStatus" layoutX="67.0" layoutY="94.0" />
+            <CheckBox fx:id="checkProblemIsAdd" layoutX="69.0" layoutY="125.0" mnemonicParsing="false" text="Add New Issue" textFill="WHITE" />
+            <CheckBox fx:id="checkProblemIsDelete" layoutX="69.0" layoutY="151.0" mnemonicParsing="false" text="Delete Issue" textFill="WHITE" />
+            <Button fx:id="btnProblemUpdate" layoutX="68.0" layoutY="181.0" mnemonicParsing="false" onAction="#OnBtnProblemUpdateClicked" prefHeight="26.0" prefWidth="157.0" text="Update" />
+         </children>
+      </Group>
+   </children>
+</AnchorPane>
